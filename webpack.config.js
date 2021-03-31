@@ -2,10 +2,8 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 require('@babel/polyfill');
-// const webpack = require('webpack');
 
 const mode = process.env.NODE_ENV || 'development';
-// const publicPath = 'application';
 
 module.exports = {
   mode,
@@ -19,12 +17,6 @@ module.exports = {
       title: 'Development',
       template: './public/index.html',
     }),
-    // new webpack.ProvidePlugin({
-    //   $: 'jquery',
-    //   jQuery: 'jquery',
-    //   'window.jQuery': 'jquery',
-    //   Popper: ['popper.js', 'default'],
-    // }),
     new CleanWebpackPlugin(),
   ],
   devServer: {

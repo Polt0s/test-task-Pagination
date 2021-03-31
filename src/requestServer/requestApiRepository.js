@@ -8,6 +8,7 @@ const getApiRepository = (totalCountPost, currentPage) => async (dispatch) => {
     );
     // console.log(response);
     dispatch(setRepository(response.data));
+    // return response.data;
   } catch (err) {
     throw new Error(`Error-${err}`);
   }

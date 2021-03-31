@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
-import './styles.css';
+import { ContainerRepo } from './styles.js';
 
 const Posts = (props) => {
   const { posts, loading } = props;
@@ -16,17 +16,35 @@ const Posts = (props) => {
       <CssBaseline />
       <Container maxWidth="sm">
         {posts.map((post) => (
-          <Box key={post.id} component="div" m={2}>
-            <Box component="div" m={1}>Name: {post.name}</Box>
-            <Box component="div" m={1}>Stars count: {post.stargazers_count}</Box>
-            <Box component="div" m={1}>Forks count: {post.forks_count}</Box>
-            <Box component="div" m={1}>Open issues count: {post.open_issues_count}</Box>
-            <Box component="div" m={1}>Last commit: {post.updated_at}</Box>
-            <a href={post.html_url} className="repo-link">Repository link: {post.html_url}</a>
-          </Box>
+          <ContainerRepo key={post.id} maxWidth="sm">
+            <Box component="div" m={1}>
+              <a style={{ fontWeight: 'bold' }}>Name: </a>
+              {post.name}
+            </Box>
+            <Box component="div" m={1}>
+              <a style={{ fontWeight: 'bold' }}>Stars count: </a>
+              {post.stargazers_count}
+            </Box>
+            <Box component="div" m={1}>
+              <a style={{ fontWeight: 'bold' }}>Forks count: </a>
+              {post.forks_count}
+            </Box>
+            <Box component="div" m={1}>
+              <a style={{ fontWeight: 'bold' }}>Open issues count: </a>
+              {post.name}{post.open_issues_count}
+            </Box>
+            <Box component="div" m={1}>
+              <a style={{ fontWeight: 'bold' }}>Last commit: </a>
+              {post.updated_at}
+            </Box >
+            <Box component="div" m={1}>
+              <a style={{ fontWeight: 'bold' }}>Repository link: </a>
+              <a href={post.html_url} className="repo-link">{post.html_url}</a>
+            </Box>
+          </ContainerRepo>
         ))}
       </Container>
-    </React.Fragment>
+    </React.Fragment >
   );
 };
 
