@@ -1,6 +1,6 @@
 # Test-Task-Pagination
 
-[![main-CI](https://github.com/Polt0s/Test-Task-Pagination/workflows/main-CI/badge.svg)](https://github.com/Polt0s/Test-Task-Pagination/actions)
+[![main-CI](https://github.com/Polt0s/Test-Task-Pagination/actions/workflows/main.yml/badge.svg)](https://github.com/Polt0s/Test-Task-Pagination/actions/workflows/main.yml)
 
 ## Installing
 
