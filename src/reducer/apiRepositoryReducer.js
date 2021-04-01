@@ -1,6 +1,5 @@
 const initState = {
   posts: [],
-  loading: false,
   currentPage: 1,
   postsPerPage: 5,
   totalCountPost: 100,

@@ -6,11 +6,9 @@ const getApiRepository = (totalCountPost, currentPage) => async (dispatch) => {
     const response = await axios.get(
       `https://api.github.com/search/repositories?q=stars:%3E100&sort=stars&per_page=${totalCountPost}&page=${currentPage}`,
     );
-    // console.log(response);
     dispatch(setRepository(response.data));
-    // return response.data;
   } catch (err) {
-    throw new Error(`Error-${err}`);
+    throw new Error(`Error: ${err}`);
   }
 };
 

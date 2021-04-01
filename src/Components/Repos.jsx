@@ -6,10 +6,7 @@ import Box from '@material-ui/core/Box';
 import { ContainerRepo } from './styles.js';
 
 const Posts = (props) => {
-  const { posts, loading } = props;
-  if (loading) {
-    return <h2>Loading...</h2>;
-  }
+  const { posts } = props;
 
   return (
     <React.Fragment>
@@ -30,10 +27,6 @@ const Posts = (props) => {
               {post.forks_count}
             </Box>
             <Box component="div" m={1}>
-              <a style={{ fontWeight: 'bold' }}>Open issues count: </a>
-              {post.name}{post.open_issues_count}
-            </Box>
-            <Box component="div" m={1}>
               <a style={{ fontWeight: 'bold' }}>Last commit: </a>
               {post.updated_at}
             </Box >
@@ -50,7 +43,6 @@ const Posts = (props) => {
 
 Posts.propTypes = {
   posts: PropTypes.array,
-  loading: PropTypes.bool,
 };
 
 export default Posts;

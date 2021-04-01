@@ -14,7 +14,6 @@ import { Footer, TextHead } from './styles.js';
 const Main = () => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.repository.posts);
-  const loading = useSelector((state) => state.repository.loading);
   const currentPage = useSelector((state) => state.repository.currentPage);
   const postsPerPage = useSelector((state) => state.repository.postsPerPage);
   const totalCountPost = useSelector((state) => state.repository.totalCountPost);
@@ -41,13 +40,14 @@ const Main = () => {
         <Box style={TextHead} component="div" m={1}>
           <p>How many elements to show per page</p>
           <ButtonGroup variant="text" color="primary" aria-label="text primary button group">
+            <Button onClick={(() => dispatch(changingPostsPerPage(posts, 5)))}>5</Button>
             <Button onClick={(() => dispatch(changingPostsPerPage(posts, 10)))}>10</Button>
+            <Button onClick={(() => dispatch(changingPostsPerPage(posts, 25)))}>25</Button>
             <Button onClick={(() => dispatch(changingPostsPerPage(posts, 50)))}>50</Button>
-            <Button onClick={(() => dispatch(changingPostsPerPage(posts, 100)))}>100</Button>
           </ButtonGroup>
         </Box>
         <Box component="div" m={1}>
-          <Posts posts={currentPosts} loading={loading} />
+          <Posts posts={currentPosts} />
         </Box>
         <Box component="div" m={1}>
           <Pagination

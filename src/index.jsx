@@ -2,12 +2,11 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './reducer/index.js';
-import App from './components/App.jsx';
+import Main from './components/Main.jsx';
 
-localStorage.getItem('autosave');
 render(
   <Provider store={store}>
-    <App />
+    <Main />
   </Provider>,
   document.getElementById('root'),
 );
