@@ -11,6 +11,8 @@ import { setCurrentPage, changingPostsPerPage } from '../actions/index.js';
 import Posts from './Repos.jsx';
 import { Footer, TextHead } from './styles.js';
 
+const NUMBER_OF_PAGE = [5, 10, 25, 50, 100];
+
 const Main = () => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => state.repository.posts);
@@ -40,10 +42,11 @@ const Main = () => {
         <Box style={TextHead} component="div" m={1}>
           <p>How many elements to show per page</p>
           <ButtonGroup variant="text" color="primary" aria-label="text primary button group">
-            <Button onClick={(() => dispatch(changingPostsPerPage(posts, 5)))}>5</Button>
-            <Button onClick={(() => dispatch(changingPostsPerPage(posts, 10)))}>10</Button>
-            <Button onClick={(() => dispatch(changingPostsPerPage(posts, 25)))}>25</Button>
-            <Button onClick={(() => dispatch(changingPostsPerPage(posts, 50)))}>50</Button>
+            {NUMBER_OF_PAGE.map((item) => (
+              <Button
+                key={item}
+                onClick={(() => dispatch(changingPostsPerPage(posts, item)))}>{item}</Button>
+            ))}
           </ButtonGroup>
         </Box>
         <Box component="div" m={1}>

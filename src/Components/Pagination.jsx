@@ -12,26 +12,32 @@ const Pagination = (props) => {
   } = props;
 
   const pageCount = Math.ceil(count / page);
-  if (pageCount === 1) {
-    return null;
-  }
-
   const pages = _.range(1, pageCount + 1);
 
-  return (
-    <div className="pagination">
-      {defaultPage === 1 ? (
+  if (pageCount === 1) {
+    return (
+      <div className="pagination">
         <div className="disabled">
           Previous
         </div>
-      ) : (
-        <div
-          className="page-item"
-          onClick={() => onChange(defaultPage - 1)}
-        >
-          Previous
+        <div key={1}
+          className="active">
+          1
+      </div>
+        <div className="disabled">
+          Next
         </div>
-      )}
+      </div>
+    );
+  }
+
+  return (
+    <div className="pagination">
+      <div
+        onClick={defaultPage === 1 ? null : () => onChange(defaultPage - 1)}
+        className={defaultPage === 1 ? 'disabled' : 'page-item'}>
+        Previous
+        </div>
       {pages.map((item) => (
         <div key={item}
           onClick={() => onChange(item)}
@@ -39,18 +45,11 @@ const Pagination = (props) => {
           {item}
         </div>
       ))}
-      {defaultPage >= pageCount ? (
-        <div className="disabled">
-          Next
+      <div
+        onClick={defaultPage >= pageCount ? null : () => onChange(defaultPage + 1)}
+        className={defaultPage >= pageCount ? 'disabled' : 'page-item'}>
+        Next
         </div>
-      ) : (
-        <div
-          className="page-item"
-          onClick={() => onChange(defaultPage + 1)}
-        >
-          Next
-        </div>
-      )}
     </div >
   );
 };
